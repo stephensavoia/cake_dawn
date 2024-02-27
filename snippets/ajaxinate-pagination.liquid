@@ -1,0 +1,7 @@
+<div id="AjaxinatePagination" style="text-align:center;">
+  {% if paginate.next %}
+    <a href="{{ paginate.next.url }}"
+      ><img src="{{ 'ajaxinate-spinner.gif' | asset_url }}" width="200px" height="200px"
+    ></a>
+  {% endif %}
+</div>

@@ -256,6 +256,7 @@
             >
               <div class="loading-overlay gradient"></div>
               <ul
+                id="ajaxinate-infinite-scroll-grid"
                 class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop"
                 role="list"
               >
@@ -319,8 +320,13 @@
                   </li>
                 {%- endfor -%}
               </ul>
-              {%- if paginate.pages > 1 -%}
-                {% render 'pagination', paginate: paginate %}
+
+              {%- if settings.infinite_scroll_enabled -%}
+                {% render 'ajaxinate-pagination' %}
+              {%- else -%}
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate %}
+                {%- endif -%}
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -332,6 +338,10 @@
 {% if section.settings.image_shape == 'arch' %}
   {% render 'mask-arch' %}
 {%- endif -%}
+
+{% if settings.infinite_scroll_enabled %}
+  {% render 'ajaxinate-infinite-scroll' %}
+{% endif %}
 
 {% schema %}
 {

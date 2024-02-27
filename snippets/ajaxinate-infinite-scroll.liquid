@@ -1,0 +1,23 @@
+{% if template.name == 'collection' %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var endlessScroll = new Ajaxinate({
+        container: '#product-grid',
+        pagination: '#AjaxinatePagination',
+        loadingText:
+          '<img src="https://cdn.shopify.com/s/files/1/0364/8349/8116/t/22/assets/spinner.gif?v=1689695972" />',
+      });
+    });
+  </script>
+{% else %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var endlessScroll = new Ajaxinate({
+        container: '#ajaxinate-infinite-scroll-grid',
+        pagination: '#AjaxinatePagination',
+        loadingText:
+          '<img src="https://cdn.shopify.com/s/files/1/0364/8349/8116/t/22/assets/spinner.gif?v=1689695972" />',
+      });
+    });
+  </script>
+{% endif %}

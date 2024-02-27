@@ -1465,5 +1465,16 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Infinite scroll",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "infinite_scroll_enabled",
+        "label": "Enable infinite scroll",
+        "default": true
+      }
+    ]
   }
 ]

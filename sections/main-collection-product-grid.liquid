@@ -168,9 +168,12 @@
                 </li>
               {%- endfor -%}
             </ul>
-
-            {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
+            {%- if settings.infinite_scroll_enabled -%}
+              {% render 'ajaxinate-pagination' %}
+            {%- else -%}
+              {%- if paginate.pages > 1 -%}
+                {% render 'pagination', paginate: paginate, anchor: '' %}
+              {%- endif -%}
             {%- endif -%}
           </div>
         {%- endif -%}
@@ -181,6 +184,10 @@
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
+
+{% if settings.infinite_scroll_enabled %}
+  {% render 'ajaxinate-infinite-scroll' %}
+{% endif %}
 
 {% schema %}
 {

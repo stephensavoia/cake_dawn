@@ -25,6 +25,7 @@
   -%}
   {%- paginate collections by paginate_by -%}
     <ul
+      id="ajaxinate-infinite-scroll-grid"
       class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
       role="list"
     >
@@ -44,9 +45,18 @@
         </li>
       {%- endfor -%}
     </ul>
-    {% render 'pagination', paginate: paginate %}
+    {%- if settings.infinite_scroll_enabled -%}
+      {% render 'ajaxinate-pagination' %}
+    {%- else -%}
+      {% render 'pagination', paginate: paginate %}
+    {%- endif -%}
   {%- endpaginate -%}
 </div>
+
+{% if settings.infinite_scroll_enabled %}
+  {% render 'ajaxinate-infinite-scroll' %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:sections.main-list-collections.name",

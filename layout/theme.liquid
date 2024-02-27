@@ -284,6 +284,16 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {% if settings.infinite_scroll_enabled %}
+      {% if template.name == 'collection'
+        or template.name == 'search'
+        or template.name == 'list-collections'
+        or template.name == 'blog'
+      %}
+        <script src="{{ 'ajaxinate.min.js' | asset_url }}" defer></script>
+      {% endif %}
+    {% endif %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

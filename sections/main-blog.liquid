@@ -22,7 +22,10 @@
       {{ blog.title | escape }}
     </h1>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+    <div
+      id="ajaxinate-infinite-scroll-grid"
+      class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}"
+    >
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -44,11 +47,19 @@
       {%- endfor -%}
     </div>
 
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
+    {%- if settings.infinite_scroll_enabled -%}
+      {% render 'ajaxinate-pagination' %}
+    {%- else -%}
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endif -%}
     {%- endif -%}
   </div>
 {%- endpaginate -%}
+
+{% if settings.infinite_scroll_enabled %}
+  {% render 'ajaxinate-infinite-scroll' %}
+{% endif %}
 
 {% schema %}
 {

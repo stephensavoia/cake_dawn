@@ -90,6 +90,14 @@ class FacetFiltersForm extends HTMLElement {
       .forEach((element) => {
         element.classList.add('scroll-trigger--cancel');
       });
+
+    if (typeof Ajaxinate !== 'undefined' && typeof Ajaxinate === 'function') {
+      var endlessScroll = new Ajaxinate({
+        container: document.getElementById("ajaxinate-infinite-scroll-grid") ? '#ajaxinate-infinite-scroll-grid' : '#product-grid',
+        pagination: '#AjaxinatePagination',
+        loadingText: '<img src="https://cdn.shopify.com/s/files/1/0364/8349/8116/t/22/assets/spinner.gif?v=1689695972" />'
+      });
+    }
   }
 
   static renderProductCount(html) {
