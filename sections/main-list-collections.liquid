@@ -46,7 +46,7 @@
       {%- endfor -%}
     </ul>
     {%- if settings.infinite_scroll_enabled -%}
-      {% render 'ajaxinate-pagination' %}
+      {% render 'ajaxinate-pagination', paginate: paginate %}
     {%- else -%}
       {% render 'pagination', paginate: paginate %}
     {%- endif -%}
