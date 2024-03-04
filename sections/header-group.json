@@ -15,8 +15,8 @@
         "announcement_KkinJD": {
           "type": "announcement",
           "settings": {
-            "text": "BROWSE OUR NEW CUPCAKES COLLECTION",
-            "link": ""
+            "text": "BROWSE OUR NEW CUPCAKES & COOKIES COLLECTION",
+            "link": "shopify:\/\/collections\/cupcakes-cookies"
           }
         },
         "announcement-bar-0": {
