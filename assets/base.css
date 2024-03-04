@@ -3521,6 +3521,12 @@ details-disclosure>details {
   }
 }
 
+/* Remove carets on announcement slider */
+.announcement-bar-slider .icon-caret {
+    visibility: hidden;
+}
+/* End of remove carets announcement slider */
+
 /* Drop shadows on home page image slider */
 .shopify-section:first-child .slideshow .slideshow__text .banner__heading {
   filter: drop-shadow(0rem 0rem .95rem rgba(0, 0, 0, 0.93));
