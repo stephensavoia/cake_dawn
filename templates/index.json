@@ -116,16 +116,17 @@
         "slide_9B76tX": {
           "type": "slide",
           "settings": {
-            "heading": "Image slide",
+            "image": "shopify:\/\/shop_images\/spring-cupcakes.jpg",
+            "heading": "TREAT YOURSELF TO FRESHLY BAKED CUPCAKES & COOKIES",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
+            "subheading": "",
+            "button_label": "BROWSE COLLECTION",
             "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
+            "image_overlay_opacity": 30,
             "color_scheme": "",
             "text_alignment_mobile": "center"
           }
@@ -134,15 +135,23 @@
       "block_order": [
         "slide_9B76tX"
       ],
+      "custom_css": [
+        ".slideshow__text {max-width: 55rem; color: rgba(255, 255, 255, 0.95);}",
+        ".banner__heading {color: rgba(255, 255, 255, 0.95);}",
+        ".banner__buttons a {color: rgba(255, 255, 255, 0.96);}",
+        "button.slideshow__autoplay {display: none;}",
+        ".slider-counter__link--active.slider-counter__link--dots .dot {background-color: rgb(173, 103, 202); border-color: rgb(173, 103, 202);}",
+        "@media (max-width: 767px) {.slider.slider--everywhere .slideshow__text.banner__box {background: rgb(0 0 0 \/ 0%); }}"
+      ],
       "settings": {
         "layout": "full_bleed",
         "slide_height": "medium",
         "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "image_behavior": "ambient",
+        "show_text_below": false,
+        "accessibility_info": "Our new cupcakes and cookies collection"
       }
     },
     "rich_text_zDx7B3": {
