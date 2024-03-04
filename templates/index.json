@@ -68,6 +68,7 @@
         ".banner__heading {color: rgba(255, 255, 255, 0.95);}",
         ".banner__buttons a {color: rgba(255, 255, 255, 0.96);}",
         "button.slideshow__autoplay {display: none;}",
+        ".slider-counter__link--active.slider-counter__link--dots .dot {background-color: red; border-color: red;}",
         "@media (max-width: 767px) {.slider.slider--everywhere .slideshow__text.banner__box {background: rgb(0 0 0 \/ 0%); }}"
       ],
       "settings": {
@@ -84,7 +85,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Our best-selling cakes...",
+        "title": "OUR BEST-SELLING CAKES...",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -105,8 +106,8 @@
         "enable_quick_add": false,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "slideshow_tjANUe": {
