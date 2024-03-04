@@ -24,12 +24,12 @@
         "slide_dcYmBM": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fruit-topped-cake.jpg",
-            "heading": "FRUIT TOPPED CAKE",
+            "image": "shopify:\/\/shop_images\/key-lime-cake.jpg",
+            "heading": "KEY LIME CAKE",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "ORDER NOW",
-            "link": "shopify:\/\/products\/fruit-topped-cake",
+            "link": "shopify:\/\/products\/key-lime-cake",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
