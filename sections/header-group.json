@@ -5,24 +5,35 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
+        "announcement_GmXq7M": {
           "type": "announcement",
           "settings": {
-            "text": "Pickup available for all cakes",
+            "text": "10% OFF YOUR FIRST PURCHASE",
             "link": ""
           }
         },
         "announcement_KkinJD": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "CUPCAKES NOW AVAILABLE FOR PURCHASE",
+            "link": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "READ OUR ORDER PICKUP INSTRUCTIONS",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0",
-        "announcement_KkinJD"
+        "announcement_GmXq7M",
+        "announcement_KkinJD",
+        "announcement-bar-0"
+      ],
+      "custom_css": [
+        "button.slider-button {display: none;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
