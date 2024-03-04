@@ -8,29 +8,38 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "QUICK LINKS",
             "menu": "footer"
           }
         },
-        "footer-1": {
-          "type": "link_list",
+        "text_gXf7AU": {
+          "type": "text",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "heading": "STORE INFO",
+            "subtext": "<p>123 Cake Street<br\/>Buttercream Valley, Cake Land<br\/>C1C 2C3<br\/><br\/>Mon-Sat: 10am-6pm<\/p>"
           }
         },
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "About Cake Dawn",
+            "heading": "ABOUT CAKE DAWN",
             "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+          }
+        },
+        "image_mgetwa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cake-dawn-logo.png",
+            "image_width": 225,
+            "alignment": "center"
           }
         }
       },
       "block_order": [
         "footer-0",
-        "footer-1",
-        "footer-2"
+        "text_gXf7AU",
+        "footer-2",
+        "image_mgetwa"
       ],
       "custom_css": [
 
