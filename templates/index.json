@@ -6,6 +6,7 @@
         "slide_dcYmBM": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/fruit-topped-cake.jpg",
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
@@ -23,6 +24,7 @@
         "slide_Dby6m3": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/simple-rustic-cake.jpg",
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
@@ -40,6 +42,7 @@
         "slide_hpj9Q3": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/rustic-autumn-floral-cake.jpg",
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
@@ -62,7 +65,7 @@
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "small",
+        "slide_height": "medium",
         "slider_visual": "dots",
         "auto_rotate": true,
         "change_slides_speed": 5,
