@@ -7,9 +7,9 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/chocolate-topped-berry-cake.jpg",
-            "heading": "Image slide",
+            "heading": "CHOCOLATE TOPPED BERRY CAKE",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "",
             "button_label": "ORDER NOW",
             "link": "shopify:\/\/products\/chocolate-topped-berry-cake",
             "button_style_secondary": false,
@@ -17,7 +17,7 @@
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 30,
-            "color_scheme": "scheme-3",
+            "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
         },
@@ -25,9 +25,9 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/fruit-topped-cake.jpg",
-            "heading": "Image slide",
+            "heading": "FRUIT TOPPED CAKE",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "",
             "button_label": "ORDER NOW",
             "link": "shopify:\/\/products\/fruit-topped-cake",
             "button_style_secondary": false,
@@ -43,12 +43,12 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/rustic-autumn-floral-cake.jpg",
-            "heading": "Image slide",
+            "heading": "RUSTIC AUTUMN FLORAL CAKE",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "",
             "button_label": "ORDER NOW",
             "link": "shopify:\/\/products\/rustic-autumn-floral-cake",
-            "button_style_secondary": true,
+            "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
