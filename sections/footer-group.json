@@ -42,7 +42,8 @@
         "image_mgetwa"
       ],
       "custom_css": [
-
+        ".footer-block {font-size: 1.4rem;}",
+        "a {padding-top: 0; padding-bottom: 0;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
