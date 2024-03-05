@@ -23,7 +23,7 @@
           "type": "text",
           "settings": {
             "heading": "ABOUT CAKE DAWN",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "subtext": "<p>Cake Dawn is an enhanced version of Shopify’s leading free theme, Dawn, designed to provide additional functionality to merchants who sell cakes.<\/p>"
           }
         },
         "image_mgetwa": {
@@ -43,7 +43,8 @@
       ],
       "custom_css": [
         ".footer-block {font-size: 1.4rem;}",
-        "a {padding-top: 0; padding-bottom: 0;}"
+        "a {padding-top: 0; padding-bottom: 0;}",
+        ".footer__copyright {display: none;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
