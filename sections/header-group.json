@@ -33,7 +33,8 @@
         "announcement-bar-0"
       ],
       "custom_css": [
-        ".icon-arrow {display: none;}"
+        ".icon-arrow {display: none;}",
+        "slideshow-component {max-width: 1800px; margin: 0 auto;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",

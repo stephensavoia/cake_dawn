@@ -142,7 +142,8 @@
         ".banner__buttons a {color: rgba(255, 255, 255, 0.96);}",
         "button.slideshow__autoplay {display: none;}",
         ".slider-counter__link--active.slider-counter__link--dots .dot {background-color: rgb(173, 103, 202); border-color: rgb(173, 103, 202);}",
-        "@media (max-width: 767px) {.slider.slider--everywhere .slideshow__text.banner__box {background: rgb(0 0 0 \/ 0%); }}"
+        "@media (max-width: 767px) {.slider.slider--everywhere .slideshow__text.banner__box {background: rgb(0 0 0 \/ 0%); }}",
+        "slideshow-component {max-width: 1800px; margin: 0 auto;}"
       ],
       "settings": {
         "layout": "full_bleed",
