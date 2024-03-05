@@ -95,7 +95,7 @@ class FacetFiltersForm extends HTMLElement {
       var endlessScroll = new Ajaxinate({
         container: document.getElementById("ajaxinate-infinite-scroll-grid") ? '#ajaxinate-infinite-scroll-grid' : '#product-grid',
         pagination: '#AjaxinatePagination',
-        loadingText: '<img src="https://cdn.shopify.com/s/files/1/0364/8349/8116/t/22/assets/spinner.gif?v=1689695972" />'
+        loadingText: '<img src="//cake-dawn.myshopify.com/cdn/shop/t/3/assets/ajaxinate-spinner.gif?v=98910404903699804181709185034" width="200px" height="200px" />'
       });
     }
   }
