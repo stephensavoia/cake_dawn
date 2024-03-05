@@ -374,5 +374,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".page-width {max-width: 1800px; margin: 0 auto;}"
+    ]
   }
 }
