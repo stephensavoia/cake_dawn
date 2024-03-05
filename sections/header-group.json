@@ -33,7 +33,8 @@
         "announcement-bar-0"
       ],
       "custom_css": [
-        ".icon-arrow {display: none;}"
+        ".icon-arrow {display: none;}",
+        ".announcement-bar-section {max-width: 1800px;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
