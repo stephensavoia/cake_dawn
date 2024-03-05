@@ -33,8 +33,7 @@
         "announcement-bar-0"
       ],
       "custom_css": [
-        ".icon-arrow {display: none;}",
-        ".utility-bar {max-width: 1800px; margin: 0 auto;}"
+        ".icon-arrow {display: none;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
