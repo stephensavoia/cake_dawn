@@ -34,7 +34,7 @@
       ],
       "custom_css": [
         ".icon-arrow {display: none;}",
-        ".announcement-bar-section {max-width: 1800px; margin: 0 auto;}"
+        ".utility-bar {max-width: 1800px; margin: 0 auto;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
