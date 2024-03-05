@@ -44,7 +44,7 @@
       "custom_css": [
         ".footer-block {font-size: 1.4rem;}",
         "a {padding-top: 0; padding-bottom: 0;}",
-        ".footer__copyright {display: none;}"
+        ".footer__content-bottom {display: none;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
