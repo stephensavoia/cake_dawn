@@ -3537,3 +3537,66 @@ details-disclosure>details {
 }
 
 /* End of drop shadows on home page image slider */
+
+/* Product page custom properties */
+
+.product-form-text-input {
+  background-color: rgb(var(--color-background));
+  box-sizing: border-box;
+  border-radius: var(--inputs-radius);
+  height: 4.5rem;
+  min-width: calc(7rem +(var(--inputs-border-width)* 2));
+  border: 0;
+  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.75);
+  line-height: calc(1 + 0.6 / var(--font-body-scale));
+  padding: 0 calc(var(--inputs-border-width) + 3rem) 0 2rem;
+  margin: var(--inputs-border-width);
+  min-height: calc(var(--inputs-border-width)* 2);
+  -webkit-appearance: none;
+}
+
+.product-form-text-input:hover {
+  transition: box-shadow var(--duration-short) ease;
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground), var(--inputs-border-opacity));
+  outline: 0;
+  border-radius: var(--inputs-radius);
+}
+
+
+.product-form-text-input:focus-visible {
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  outline: 0;
+  border-radius: var(--inputs-radius);
+}
+
+.product-form-text-input:focus {
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  outline: 0;
+  border-radius: var(--inputs-radius);
+  outline: transparent solid 1px;
+}
+
+.product-form-checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.product-form-checkbox {
+  accent-color: rgb(var(--color-button));
+}
+
+.product-form-checkbox-label {
+  font-size: 1.3rem;
+  vertical-align: initial;
+  margin: 0 3px;
+  display: inline-block;
+  line-height: 1.3rem;
+}
+/* End of roduct page custom properties */

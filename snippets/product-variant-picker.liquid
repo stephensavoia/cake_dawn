@@ -96,6 +96,41 @@
   </variant-selects>
 {%- endunless -%}
 
+{%- if product.metafields.custom.custom_cake_message -%}
+  <div class="product-form__input">
+    <label id="custom_cake_message_label" for="custom_cake_message" class="form__label">{{- 'products.product.custom_cake_message_label' | t -}}</label>
+    <input
+      class="field product-form-text-input"
+      type="text"
+      id="custom_cake_message"
+      name="properties[Custom Cake Message]"
+      form="{{ product_form_id }}"
+      maxlength="50"
+    >
+  </div>
+{%- endif -%}
+
+{%- if product.metafields.custom.omit_nuts -%}
+  <div class="product-form__input">
+    <label id="omit_nuts_title" class="form__label">Preference - Omit Nuts</label>
+    <div class="product-form-checkbox-group">
+      <input
+        class="product-form-checkbox"
+        type="checkbox"
+        id="omit_nuts"
+        name="properties[Nut Preference]"
+        form="{{ product_form_id }}"
+        value="Nut-Free"
+      >
+      <label for="omit_nuts" class="product-form-checkbox-label">Nut-Free</label>
+    </div>
+  </div>
+{%- endif -%}
+
+{%- if product.metafields.custom.omit_alcohol -%}
+  OMIT ALCOHOL
+{%- endif -%}
+
 <noscript class="product-form__noscript-wrapper-{{ section.id }}">
   <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
     <label class="form__label" for="Variants-{{ section.id }}">
