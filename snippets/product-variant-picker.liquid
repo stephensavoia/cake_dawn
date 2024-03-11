@@ -97,8 +97,14 @@
 {%- endunless -%}
 
 {%- if product.metafields.custom.custom_cake_message -%}
-  <div class="product-form__input">
-    <label id="custom_cake_message_label" for="custom_cake_message" class="form__label">{{- 'products.product.custom_cake_message_label' | t -}}</label>
+  <div class="product-form__input custom-cake-message-container">
+    <label id="custom_cake_message_label" for="custom_cake_message" class="form__label">
+      {{- 'products.custom_cake_info.custom_cake_message_label' | t -}}
+      <span class="product-form__tooltip">
+        <span class="product-form__question-mark">?</span>
+        <span class="product-form__tooltiptext">{{- 'products.custom_cake_info.custom_cake_message_info' | t -}}</span>
+      </span>
+    </label>
     <input
       class="field product-form-text-input"
       type="text"
@@ -108,11 +114,97 @@
       maxlength="50"
     >
   </div>
+
+  {% assign colors = block.settings.icing_color_1 
+    | append: '|' 
+    | append: block.settings.icing_color_2 
+    | append: '|' 
+    | append: block.settings.icing_color_3 
+    | append: '|' 
+    | append: block.settings.icing_color_4 
+    | append: '|' 
+    | append: block.settings.icing_color_5 
+    | append: '|' 
+    | append: block.settings.icing_color_6 
+    | split: '|'
+  %}
+
+
+  {% assign color_name_1 = block.settings.icing_color_1_name | default: "!nc" %}
+  {% assign color_name_2 = block.settings.icing_color_2_name | default: "!nc" %}
+  {% assign color_name_3 = block.settings.icing_color_3_name | default: "!nc" %}
+  {% assign color_name_4 = block.settings.icing_color_4_name | default: "!nc" %}
+  {% assign color_name_5 = block.settings.icing_color_5_name | default: "!nc" %}
+  {% assign color_name_6 = block.settings.icing_color_6_name | default: "!nc" %} 
+
+  {% assign color_names = color_name_1 
+    | append: '|' 
+    | append: color_name_2 
+    | append: '|' 
+    | append: color_name_3 
+    | append: '|' 
+    | append: color_name_4 
+    | append: '|' 
+    | append: color_name_5 
+    | append: '|' 
+    | append: color_name_6 
+    | split: '|'
+  %}
+
+  {% if block.settings.show_cake_message_swatches %}
+    <fieldset id="product-form__color_picker_container" class="product-form__input cake-message-color-picker">
+      <legend id="icing_color_title" class="form__label">
+        {{- 'products.custom_cake_info.icing_color_label' | t -}}
+      </legend>
+
+      <div class="product-form-radio-group">
+
+        {% for i in (0..5) %}
+          {% if color_names[i] != "No Color Name" and colors[i] != "rgba(0,0,0,0)" %}
+            <input
+              class="icing_color_swatch-input__input"
+              type="radio"
+              id="color_{{ color_names[i] }}"
+              name="properties[Message Icing Color]"
+              form="{{ product_form_id }}"
+              value="{{ color_names[i] }}"
+            >
+            <label for="color_{{ color_names[i] }}" title="{{ color_names[i] }}" class="swatch-input__label">
+              <span class="icing-color-swatch" style="background-color: {{ colors[i] }}"></span>
+            </label>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </fieldset>
+  {% endif %}
+  <script>
+    if ("{{ color_names }}" != "!nc!nc!nc!nc!nc!nc"
+    && "{{ colors }}" != "rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)") {    
+      document.getElementById('custom_cake_message').addEventListener('input', function() {
+        const colorPicker = document.getElementById('product-form__color_picker_container');
+        if (this.value) {
+          colorPicker.classList.add('visible');
+        } else {
+          colorPicker.classList.remove('visible');
+          const radioInputs = colorPicker.querySelectorAll('input[type="radio"].icing_color_swatch-input__input');
+          radioInputs.forEach((input) => {
+            input.checked = false;
+          });
+        }
+      });
+    }
+  </script>
 {%- endif -%}
 
 {%- if product.metafields.custom.omit_nuts -%}
-  <div class="product-form__input">
-    <label id="omit_nuts_title" class="form__label">Preference - Omit Nuts</label>
+  <fieldset class="product-form__input">
+    <legend id="omit_nuts_title" class="form__label">
+      {{- 'products.custom_cake_info.omit_nuts_label' | t -}}
+      <span class="product-form__tooltip">
+        <span class="product-form__question-mark">?</span>
+        <span class="product-form__tooltiptext">{{- 'products.custom_cake_info.omit_nuts_info' | t -}}</span>
+      </span>
+    </legend>
     <div class="product-form-checkbox-group">
       <input
         class="product-form-checkbox"
@@ -120,15 +212,57 @@
         id="omit_nuts"
         name="properties[Nut Preference]"
         form="{{ product_form_id }}"
-        value="Nut-Free"
+        value="{{- 'products.custom_cake_info.omit_nuts_value' | t -}}"
       >
-      <label for="omit_nuts" class="product-form-checkbox-label">Nut-Free</label>
+      <label for="omit_nuts" class="product-form-checkbox-label">{{- 'products.custom_cake_info.omit_nuts_value' | t -}}</label>
     </div>
-  </div>
+  </fieldset>
+
+{% comment %}
+  The following script conditionally shows/hides the omit_nuts fieldset based on the selected flavour.
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flavourOption = document.querySelector('[name="options[Flavour]"]');
+      const omitNutsFieldset = document.getElementById('omit_nuts_title').parentElement;
+    
+      function handleFlavourChange() {
+        if (flavourOption.value === 'Hazelnut') {
+          omitNutsFieldset.style.display = 'none';
+        } else {
+          omitNutsFieldset.style.display = 'block';
+        }
+      }
+    
+      handleFlavourChange();
+    
+      flavourOption.addEventListener('change', handleFlavourChange);
+    });
+  </script>
+{% endcomment %}
+
 {%- endif -%}
 
 {%- if product.metafields.custom.omit_alcohol -%}
-  OMIT ALCOHOL
+  <fieldset class="product-form__input">
+    <legend id="omit_alcohol_title" class="form__label">
+      {{- 'products.custom_cake_info.omit_alcohol_label' | t -}}
+      <span class="product-form__tooltip">
+        <span class="product-form__question-mark">?</span>
+        <span class="product-form__tooltiptext">{{- 'products.custom_cake_info.omit_alcohol_info' | t -}}</span>
+      </span>
+    </legend>
+    <div class="product-form-checkbox-group">
+      <input
+        class="product-form-checkbox"
+        type="checkbox"
+        id="omit_alcohol"
+        name="properties[Alcohol Preference]"
+        form="{{ product_form_id }}"
+        value="{{- 'products.custom_cake_info.omit_alcohol_value' | t -}}"
+      >
+      <label for="omit_alcohol" class="product-form-checkbox-label">{{- 'products.custom_cake_info.omit_alcohol_value' | t -}}</label>
+    </div>
+  </fieldset>
 {%- endif -%}
 
 <noscript class="product-form__noscript-wrapper-{{ section.id }}">

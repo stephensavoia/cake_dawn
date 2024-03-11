@@ -173,8 +173,18 @@
       "xr_button": "View in your space",
       "xr_button_label": "View in your space, loads item in augmented reality window",
       "include_taxes": "Tax included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
-      "custom_cake_message_label": "Custom Cake Message"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+    },
+    "custom_cake_info": {
+      "custom_cake_message_label": "Custom Cake Message",
+      "custom_cake_message_info": "We can write a message on your cake in icing.",
+      "icing_color_label": "Cake Message Icing Colour",
+      "omit_nuts_label": "Preference - Omit Nuts",
+      "omit_nuts_value": "Nut-Free",
+      "omit_nuts_info": "While we are not a nut-free facility, we can omit nut ingredients from your cake. (For some flavours, such as “Hazelnut”, this is not possible.)",
+      "omit_alcohol_label": "Preference - Omit Alcohol Syrup",
+      "omit_alcohol_value": "Alcohol-Free",
+      "omit_alcohol_info": "Some of our cakes are made with alcohol syrup. If you prefer, we can use an alcohol-free syrup instead."
     },
     "modal": {
       "label": "Media gallery"
