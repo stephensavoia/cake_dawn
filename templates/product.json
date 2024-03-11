@@ -29,15 +29,15 @@
             "icing_color_1": "#f51e1e",
             "icing_color_1_name": "Red",
             "icing_color_2": "#1b25ff",
-            "icing_color_2_name": "",
+            "icing_color_2_name": "Blue",
             "icing_color_3": "#3aaf3d",
-            "icing_color_3_name": "",
+            "icing_color_3_name": "Green",
             "icing_color_4": "#9161ff",
-            "icing_color_4_name": "Purplefr",
+            "icing_color_4_name": "Purple",
             "icing_color_5": "#cfbb46",
-            "icing_color_5_name": "",
+            "icing_color_5_name": "Gold",
             "icing_color_6": "#a9b3af",
-            "icing_color_6_name": ""
+            "icing_color_6_name": "Silver"
           }
         },
         "quantity_selector": {
