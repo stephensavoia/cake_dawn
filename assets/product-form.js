@@ -9,10 +9,10 @@ if (!customElements.get('product-form')) {
         this.form.querySelector('[name=id]').disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
         // Added if statement so that "Last-minute add-ons" on cart page skips drawer and goes directly to cart page
-        if (document.querySelector('main-cart-items')) {
+        if (document.querySelector('#main-cart-items')) {
           this.cart = null;
         } else {
-          this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+          this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer'); // Original line from Dawn
         }
         // to here
         this.submitButton = this.querySelector('[type="submit"]');
