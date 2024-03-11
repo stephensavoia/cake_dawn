@@ -14,6 +14,7 @@ if (!customElements.get('product-form')) {
         } else {
           this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         }
+        // to here
         this.submitButton = this.querySelector('[type="submit"]');
 
         if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
