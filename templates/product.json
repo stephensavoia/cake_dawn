@@ -24,7 +24,20 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "dropdown",
-            "swatch_shape": "circle"
+            "swatch_shape": "circle",
+            "show_cake_message_swatches": true,
+            "icing_color_1": "#f51e1e",
+            "icing_color_1_name": "",
+            "icing_color_2": "#1b25ff",
+            "icing_color_2_name": "",
+            "icing_color_3": "#3aaf3d",
+            "icing_color_3_name": "",
+            "icing_color_4": "#9161ff",
+            "icing_color_4_name": "",
+            "icing_color_5": "#cfbb46",
+            "icing_color_5_name": "",
+            "icing_color_6": "#a9b3af",
+            "icing_color_6_name": ""
           }
         },
         "quantity_selector": {
