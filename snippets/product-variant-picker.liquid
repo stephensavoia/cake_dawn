@@ -160,7 +160,7 @@
       <div class="product-form-radio-group">
 
         {% for i in (0..5) %}
-          {% if color_names[i] != "No Color Name" and colors[i] != "rgba(0,0,0,0)" %}
+          {% if color_names[i] != "!nc" and colors[i] != "rgba(0,0,0,0)" %}
             <input
               class="icing_color_swatch-input__input"
               type="radio"
