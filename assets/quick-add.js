@@ -8,15 +8,7 @@ if (!customElements.get('quick-add-modal')) {
       }
 
       hide(preventFocus = false) {
-
-        // Added if statement so that "Last-minute add-ons" on cart page skips drawer and goes directly to cart page
-        if (document.querySelector('main-cart-items')) {
-          const cartNotification = null;
-        } else {
-          const cartNotification = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-        }
-        // to here
-
+        const cartNotification = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         if (cartNotification) cartNotification.setActiveElement(this.openedBy);
         this.modalContent.innerHTML = '';
 
