@@ -178,8 +178,8 @@
     </fieldset>
   {% endif %}
   <script>
-    if ("{{ color_names }}" != "!nc!nc!nc!nc!nc!nc"
-    && "{{ colors }}" != "rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)rgba(0,0,0,0)") {    
+    if ("{{ color_names }}" != "!nc".repeat(6)
+    && "{{ colors }}" != "rgba(0,0,0,0".repeat(6)) {    
       document.getElementById('custom_cake_message').addEventListener('input', function() {
         const colorPicker = document.getElementById('product-form__color_picker_container');
         if (this.value) {

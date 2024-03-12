@@ -1,0 +1,125 @@
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+<div id="popupModal" class="popup-modal-container">
+    <div class="popup-modal-content">
+        <button id="closePopupModal" type="button" class="quick-add-modal__toggle popup-modal-close-button" aria-label="Close">
+            {% render 'icon-close' %}
+        </button>
+        {{ section.settings.popup_image | image_url: width: 350 | image_tag }}
+        <p>{{ section.settings.popup_text }}</p>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Popup Message",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Popup image"
+        },
+        {
+        "type": "text",
+        "id": "popup_text",
+        "label": "Popup text"
+        }
+    ],
+    "presets": [{
+    "name": "Popup Message",
+    "category": "Window"
+    }]
+}
+{% endschema %}
+
+{% style %}
+
+.popup-modal-container {
+  display: flex; 
+  position: fixed; 
+  z-index: 4; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+  transition: all 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-modal-content {
+  background-color: #fefefe;
+  position: relative;
+  margin: auto; 
+  padding: 1.6rem;
+  border: 1px solid #888;
+  width: 500px;
+  transition: all 0.3s ease-in-out;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-modal-content img {
+    display: block;
+    margin: 1rem 0;
+}
+
+.popup-modal-content p {
+    max-width: 400px;
+    display: block;
+    text-align: center;
+}
+
+.popup-modal-close-button {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.popup-modal-close-button:hover,
+.popup-modal-close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-modal-container.hide-modal {
+  opacity: 0;
+}
+
+.popup-modal-container.hide-modal .popup-modal-content,
+.popup-modal-container.hide-modal .popup-modal-content img,
+.popup-modal-container.hide-modal .popup-modal-content p {
+  opacity: 0;
+}
+
+{% endstyle %}
+
+{% javascript %}
+var modal = document.getElementById("popupModal");
+var closeBtn = document.getElementById("closePopupModal");
+
+closeBtn.onclick = function() {
+  modal.classList.add("hide-modal");
+  setTimeout(function() {
+    modal.style.display = "none";
+  }, 0);
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.add("hide-modal");
+    setTimeout(function() {
+      modal.style.display = "none";
+    }, 0);
+  }
+}
+{% endjavascript %}
+
+
+
