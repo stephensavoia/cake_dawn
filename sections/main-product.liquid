@@ -1,3 +1,11 @@
+{%- if product.selected_or_first_available_variant.quantity_rule.min != 1 -%}
+  {%- assign cake_dawn_quantity_rule_min = product.selected_or_first_available_variant.quantity_rule.min -%}
+{%- elsif product.metafields.custom.minimum_quantity -%}
+  {%- assign cake_dawn_quantity_rule_min = product.metafields.custom.minimum_quantity -%}
+{%- else -%}
+  {%- assign cake_dawn_quantity_rule_min = 1 -%}
+{%- endif -%}
+
 <section
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -242,15 +250,16 @@
                       name="quantity"
                       id="Quantity-{{ section.id }}"
                       data-cart-quantity="{{ cart_qty }}"
-                      data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                      min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      data-min="{{ cake_dawn_quantity_rule_min }}"
+                      min="{{ cake_dawn_quantity_rule_min }}"
                       {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                         data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                         max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                       {% endif %}
                       step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                      value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                      value="{{ cake_dawn_quantity_rule_min }}"
                       form="{{ product_form_id }}"
+                      onchange="validateQuantity(this)"
                     />
                     <button class="quantity__button no-js-hidden" name="plus" type="button">
                       <span class="visually-hidden">
@@ -261,7 +270,7 @@
                   </quantity-input>
                   {%- liquid
                     assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
-                    assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
+                    assign current_qty_for_volume_pricing = cart_qty | plus: cake_dawn_quantity_rule_min
                     if cart_qty > 0
                       assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.increment
                     endif
@@ -335,11 +344,11 @@
                       -}}
                     </span>
                   {%- endif -%}
-                  {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+                  {%- if cake_dawn_quantity_rule_min > 1 -%}
                     <span class="divider">
                       {{-
                         'products.product.quantity.minimum_of'
-                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
+                        | t: quantity: cake_dawn_quantity_rule_min
                       -}}
                     </span>
                   {%- endif -%}
@@ -358,7 +367,7 @@
                       <span class="caption-large">{{ 'products.product.volume_pricing.title' | t }}</span>
                       <ul class="list-unstyled no-js-hidden">
                         <li>
-                          <span>{{ product.selected_or_first_available_variant.quantity_rule.min }}+</span>
+                          <span>{{ cake_dawn_quantity_rule_min }}+</span>
                           {%- assign price = product.selected_or_first_available_variant.price | money_with_currency -%}
                           <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}">{{ 'sections.quick_order_list.each' | t: money: price }}</span>
                         </li>
@@ -669,7 +678,20 @@
     }
   </script>
   </div>
+  <script>
+    function validateQuantity(input) {
+        var minQuantity = parseFloat(input.min);
+        var enteredQuantity = parseFloat(input.value);
+        var cartQuantity = parseFloat(document.querySelector('label[for="Quantity-{{ section.id }}"] .quantity-cart').innerHTML) || 0;
+  
+        if (enteredQuantity + cartQuantity < minQuantity || isNaN(enteredQuantity)) {
+            alert('Quantity cannot be lower than the minimum.');
+            input.value = minQuantity;
+        }
+    }
+  </script>
 </section>
+
 
 {% schema %}
 {

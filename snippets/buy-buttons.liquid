@@ -10,6 +10,15 @@
   Usage:
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
+
+{%- if product.selected_or_first_available_variant.quantity_rule.min != 1 -%}
+  {%- assign cake_dawn_quantity_rule_min = product.selected_or_first_available_variant.quantity_rule.min -%}
+{%- elsif product.metafields.custom.minimum_quantity -%}
+  {%- assign cake_dawn_quantity_rule_min = product.metafields.custom.minimum_quantity -%}
+{%- else -%}
+  {%- assign cake_dawn_quantity_rule_min = 1 -%}
+{%- endif -%}
+
 <div {{ block.shopify_attributes }}>
   {%- if product != blank -%}
     {%- liquid
@@ -71,7 +80,7 @@
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
               assign check_against_inventory = false
             endif
-            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+            if cake_dawn_quantity_rule_min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
               assign quantity_rule_soldout = true
             endif
           -%}

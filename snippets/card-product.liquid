@@ -23,6 +23,14 @@
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
 
+{%- if card_product.selected_or_first_available_variant.quantity_rule.min != 1 -%}
+  {%- assign cake_dawn_quantity_rule_min = card_product.selected_or_first_available_variant.quantity_rule.min -%}
+{%- elsif card_product.metafields.custom.minimum_quantity -%}
+  {%- assign cake_dawn_quantity_rule_min = card_product.metafields.custom.minimum_quantity -%}
+{%- else -%}
+  {%- assign cake_dawn_quantity_rule_min = 1 -%}
+{%- endif -%}
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -212,7 +220,7 @@
             {%- liquid
               assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
               assign qty_rules = false
-              if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
+              if cake_dawn_quantity_rule_min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
                 assign qty_rules = true
               endif
             -%}
