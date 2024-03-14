@@ -32,6 +32,9 @@
         "bird_pickup_delivery_app_block_D9AkDj",
         "buttons"
       ],
+      "custom_css": [
+        "i.tax-note caption-large rte {display: none;}"
+      ],
       "settings": {
         "color_scheme": "",
         "padding_top": 8,
