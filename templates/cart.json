@@ -60,28 +60,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "171039207236f9d393": {
-      "type": "apps",
-      "blocks": {
-        "bird_pickup_delivery_app_block_nHBAbT": {
-          "type": "shopify:\/\/apps\/bird-pickup-delivery\/blocks\/app-block\/6e8f5020-fc3a-4acd-a31a-fb627c0270cf",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "bird_pickup_delivery_app_block_nHBAbT"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "cart-items",
     "cart-footer",
-    "featured-collection",
-    "171039207236f9d393"
+    "featured-collection"
   ]
 }
