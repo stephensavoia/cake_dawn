@@ -1,4 +1,3 @@
-![Cake Dawn](sample-photos-from-pexels/cake-dawn-logo.png)
 # Cake Dawn
 
 Cake Dawn is an enhanced version of Shopify’s leading free theme, Dawn, designed to provide additional functionality to merchants who sell cakes. Key features of Cake Dawn include:
