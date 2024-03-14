@@ -34,6 +34,7 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Last-minute add-ons...",
         "heading_size": "h2",
