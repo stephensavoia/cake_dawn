@@ -515,6 +515,11 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
+
+          {%- if cake_dawn_quantity_rule_min > 1 -%}
+            <input id="qty_min_input" type="hidden" form="product-form-{{ section.id }}" name="properties[_min_quantity_rule]" value="{{ cake_dawn_quantity_rule_min }}">
+          {%- endif -%}
+
           <a
             {% if product == blank %}
               role="link" aria-disabled="true"

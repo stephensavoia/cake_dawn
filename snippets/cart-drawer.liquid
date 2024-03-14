@@ -288,24 +288,49 @@
                                     </span>
                                     {% render 'icon-minus' %}
                                   </button>
-                                  <input
-                                    class="quantity__input"
-                                    type="number"
-                                    data-quantity-variant-id="{{ item.variant.id }}"
-                                    name="updates[]"
-                                    value="{{ item.quantity }}"
-                                    {% # theme-check-disable %}
-                                    data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                    min="{{ item.variant.quantity_rule.min }}"
-                                    {% if item.variant.quantity_rule.max != null %}
-                                      max="{{ item.variant.quantity_rule.max }}"
-                                    {% endif %}
-                                    step="{{ item.variant.quantity_rule.increment }}"
-                                    {% # theme-check-enable %}
-                                    aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                                    id="Drawer-quantity-{{ item.index | plus: 1 }}"
-                                    data-index="{{ item.index | plus: 1 }}"
-                                  >
+
+                                  {% if item.properties['_min_quantity_rule'] %}
+                                    <input
+                                      class="quantity__input"
+                                      type="number"
+                                      data-quantity-variant-id="{{ item.variant.id }}"
+                                      name="updates[]"
+                                      value="{{ item.quantity }}"
+                                      {% # theme-check-disable %}
+                                      data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                      min="{{ item.properties['_min_quantity_rule'] }}"
+                                      {% if item.variant.quantity_rule.max != null %}
+                                        max="{{ item.variant.quantity_rule.max }}"
+                                      {% endif %}
+                                      step="{{ item.variant.quantity_rule.increment }}"
+                                      {% # theme-check-enable %}
+                                      aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                      id="
+                                      Drawer-quantity-{{ item.index | plus: 1 }}"
+                                      data-index="{{ item.index | plus: 1 }}"
+                                      onchange="validateQuantityCart(this)"
+                                    >
+                                  {% else %}
+                                    <input
+                                      class="quantity__input"
+                                      type="number"
+                                      data-quantity-variant-id="{{ item.variant.id }}"
+                                      name="updates[]"
+                                      value="{{ item.quantity }}"
+                                      {% # theme-check-disable %}
+                                      data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                      min="{{ item.variant.quantity_rule.min }}"
+                                      {% if item.variant.quantity_rule.max != null %}
+                                        max="{{ item.variant.quantity_rule.max }}"
+                                      {% endif %}
+                                      step="{{ item.variant.quantity_rule.increment }}"
+                                      {% # theme-check-enable %}
+                                      aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                      id="
+                                      Drawer-quantity-{{ item.index | plus: 1 }}"
+                                      data-index="{{ item.index | plus: 1 }}"
+                                    >
+                                  {% endif %}
                                   <button class="quantity__button no-js-hidden" name="plus" type="button">
                                     <span class="visually-hidden">
                                       {{-
@@ -332,6 +357,11 @@
                                 </button>
                               </cart-remove-button>
                             </div>
+
+                            {% if item.properties['_min_quantity_rule'] %}
+                              <div class="quantity__rules caption no-js-hidden"><span class="divider">Minimum of {{ item.properties['_min_quantity_rule'] }}</span></div>
+                            {% endif %}
+
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
                                 type="button"
@@ -550,4 +580,16 @@
       document.querySelector('#cart').submit();
     });
   });
+</script>
+
+<script>
+  function validateQuantityCart(input) {
+      var minQuantity = parseFloat(input.min);
+      var enteredQuantity = parseFloat(input.value);
+
+      if (enteredQuantity < minQuantity || isNaN(enteredQuantity)) {
+          alert('Quantity cannot be lower than the minimum.');
+          input.value = minQuantity;
+      }
+  }
 </script>
