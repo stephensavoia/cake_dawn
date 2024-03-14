@@ -1,6 +1,6 @@
 # Cake Dawn
 
-Cake Dawn is an enhanced version of Shopify’s leading free theme, Dawn, designed to provide additional functionality to merchants who sell cakes. Key features of Cake Dawn include:
+Cake Dawn is an enhanced version of Shopify’s leading free theme, Dawn, designed to provide additional functionality to merchants who sell cakes. Features of Cake Dawn include:
 
 - **Infinite Scroll:** allow customers to browse through cakes and blog posts without interruption from pagination links
 - **Product Minimums:** set minimum order quantities at the product level to ensure that smaller baked goods, such as cupcakes, can be made in batches
