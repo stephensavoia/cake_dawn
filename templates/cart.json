@@ -33,7 +33,7 @@
         "buttons"
       ],
       "custom_css": [
-        "i.tax-note caption-large rte {display: none;}"
+
       ],
       "settings": {
         "color_scheme": "",
